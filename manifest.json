@@ -1,14 +1,24 @@
 {
-    "name": "Codechef Notifier",
-    "description": "Notify users of Codechef verdict",
-    "version": "1.0",
-    "manifest_version": 2,
-    "background": {
-        "service_worker": "main.js"
-    },
-    "permissions": [
-        "storage",
-        "webRequest",
-        "<all_urls>"
+  "name": "Codechef Notifier",
+  "description": "Notify users of Codechef verdict",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "main.js"
+  },
+  "host_permissions": ["https://www.codechef.com/*"],
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules_1.json"
+      }
     ]
+  }
 }
